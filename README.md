@@ -33,6 +33,17 @@ AUR package page:
 - If upstream DMG layout changes, `PKGBUILD`/launcher may need updates.
 - The DMG checksum is currently `SKIP` (recommended to pin a checksum in future updates).
 
+## Why `sha256sums=('SKIP')` Is Intentional
+
+This package intentionally leaves the upstream `Codex.dmg` checksum as `SKIP` so builds fetch the latest DMG available at the fixed upstream URL.
+
+Tradeoff:
+
+- Pro: lower maintenance for a fast-moving upstream binary
+- Con: builds are less deterministic and do not verify DMG integrity at package build time
+
+If upstream release cadence stabilizes (or a versioned download URL becomes available), pinning a checksum would be preferable.
+
 ## Install (AUR User Flow)
 
 After installing the package from AUR, run:
